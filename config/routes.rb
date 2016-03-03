@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'blog#list'
-  get 'post/new' => 'post#new', as: :new_post
-  get 'post/:id' => 'post#detail', as: :post
-  post 'posts' => 'post#create'
+  get 'blog/new' => 'blog#new', as: :new_blog
+  get 'blog/:id' => 'blog#detail', as: :blog
+  post 'blogs' => 'blog#create'
 
-  get 'post/:id/edit' => 'post#edit'
-  patch 'post/:id' => 'post#update'
-  delete 'post/:id' => 'post#delete'
+  get 'blog/:id/edit' => 'blog#edit'
+  patch 'blog/:id' => 'blog#update'
+  delete 'blog/:id' => 'blog#delete'
 
 
 

@@ -1,19 +1,19 @@
 class BlogController < ApplicationController
   def list
-    @post = Post.order("created_at desc")
+    @blog = Blog.order("created_at desc")
   end
 
   def detail
-    @post = Post.find params[:id]
+    @blog = Blog.find params[:id]
   end
 
   def new
-    @post = Post.new
+    @blog = Blog.new
   end
 
   def create
-    @post = Post.new params.require(:post).permit(:title, :body)
-    if @post.save
+    @blog = Blog.new params.require(:blog).permit(:title, :body)
+    if @blog.save
       redirect_to root_path
     else
       render :new
@@ -21,12 +21,12 @@ class BlogController < ApplicationController
   end
 
   def edit
-    @post = Post.find params[:id]
+    @blog = Blog.find params[:id]
   end
 
   def update
-    @post = Post.find params[:id]
-    if @post.update params.require(:post).permit(:title, :body)
+    @blog = Blog.find params[:id]
+    if @blog.update params.require(:blog).permit(:title, :body)
       redirect_to root_path
     else
       render :edit
@@ -35,8 +35,8 @@ class BlogController < ApplicationController
 
 
   def delete
-      @post = Post.find params[:id]
-      @post.destroy
+      @blog = Blog.find params[:id]
+      @blog.destroy
       redirect_to root_path
   end
 
